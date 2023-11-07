@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EquationComponent } from './equation.component';
+import {EquationComponent} from './equation.component';
 
 describe('EquationComponent', () => {
   let component: EquationComponent;
@@ -8,9 +8,9 @@ describe('EquationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EquationComponent ]
+      declarations: [EquationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

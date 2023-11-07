@@ -1,4 +1,4 @@
-import { MathValidators } from './math-validators';
+import {MathValidators} from './math-validators';
 
 describe('MathValidators', () => {
   it('should create an instance', () => {

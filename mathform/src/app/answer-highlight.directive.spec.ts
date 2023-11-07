@@ -1,4 +1,4 @@
-import { AnswerHighlightDirective } from './answer-highlight.directive';
+import {AnswerHighlightDirective} from './answer-highlight.directive';
 
 describe('AnswerHighlightDirective', () => {
   it('should create an instance', () => {

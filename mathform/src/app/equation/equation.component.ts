@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
 import {MathValidators} from "../math-validators";
 import {delay, filter, scan} from "rxjs";
 
@@ -15,14 +15,17 @@ export class EquationComponent implements OnInit {
     b: new FormControl(this.randomNumber()),
     answer: new FormControl('')
   }, [
-    MathValidators.addition('answer','a','b'),
+    MathValidators.addition('answer', 'a', 'b'),
   ]);
-  constructor() { }
 
-  get a(){
+  constructor() {
+  }
+
+  get a() {
     return this.mathForm.value.a;
   }
-  get b(){
+
+  get b() {
     return this.mathForm.value.a;
   }
 
@@ -30,15 +33,15 @@ export class EquationComponent implements OnInit {
     this.mathForm.statusChanges.pipe(
       filter(value => value === 'VALID'),
       delay(100),
-      scan((acc,value )=> {
-        return  {
-          numberSolved: acc.numberSolved +1,
-          startTIme: acc.startTIme
+      scan((acc, value) => {
+        return {
+          numberSolved: acc.numberSolved + 1,
+          startTime: acc.startTime
         }
-      }, {numberSolved: 0, startTIme: new Date()})
-    ).subscribe( ({numberSolved, startTIme})=> {
+      }, {numberSolved: 0, startTime: new Date()})
+    ).subscribe(({numberSolved, startTime: startTime}) => {
       this.secondsPerSolution = (
-        new Date().getTime() - startTIme.getTime()
+        new Date().getTime() - startTime.getTime()
       ) / numberSolved / 1000;
       this.mathForm.patchValue({
         a: this.randomNumber(),
@@ -47,7 +50,8 @@ export class EquationComponent implements OnInit {
       });
     });
   }
-  randomNumber(){
-    return  Math.floor(Math.random()*10);
+
+  randomNumber() {
+    return Math.floor(Math.random() * 10);
   }
 }
