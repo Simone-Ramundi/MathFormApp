@@ -26,14 +26,14 @@ export class EquationComponent implements OnInit {
   }
 
   get b() {
-    return this.mathForm.value.a;
+    return this.mathForm.value.b;
   }
 
   ngOnInit(): void {
     this.mathForm.statusChanges.pipe(
       filter(value => value === 'VALID'),
       delay(100),
-      scan((acc, value) => {
+      scan((acc) => {
         return {
           numberSolved: acc.numberSolved + 1,
           startTime: acc.startTime
